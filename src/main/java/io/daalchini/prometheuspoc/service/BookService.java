@@ -29,4 +29,10 @@ public class BookService {
 
         return bookMapper.toDto(all);
     }
+
+    public BookDto findById(Long bookId) {
+        var byId = bookRepository.findById(bookId);
+
+        return byId.map(bookMapper::toDto).orElse(null);
+    }
 }
